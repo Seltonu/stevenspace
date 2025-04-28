@@ -1,0 +1,34 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import catgroove from "../images/catgroove.webp";
+
+const entries = Object.entries(import.meta.glob("./blogs/*.{astro,md}"));
+
+const posts = await Promise.all(
+  entries.map(async ([path, resolver]) => {
+    const mod = await resolver();
+    const fm = mod.post_details ?? {};
+
+    return {
+      url: path.replace("./blogs", "/blogs").replace(/(\/index)?\.(md|astro)$/, ""),
+      title: fm.title ?? "(Steven probably forgot to put a title)",
+      publishDate: fm.publishDate ?? "",
+      publishDateDisplay: fm.publishDateDisplay ?? null,
+    };
+  })
+);
+
+// Sort newest first by ISO string
+posts.sort((a, b) => b.publishDate.localeCompare(a.publishDate));
+---
+
+<BaseLayout class="medium">
+    <h2>Projects, perchance.
+        <!-- <img src="/src/images/catgroove.webp" alt="Cat groovin gif" style="vertical-align: middle;"> -->
+        <Image src={catgroove} alt="Cat groovin gif" style="vertical-align: middle;" />
+    </h2>
+    <p>This section coming soon! I've far too many projects under my belt, hoping to shed a few. My greatest project at
+        the moment is myself, so expect this section to take time before I can get to it.
+    </p>
+</BaseLayout>

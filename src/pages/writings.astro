@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const entries = Object.entries(import.meta.glob("./writings/*.{astro,md}"));
+
+const posts = await Promise.all(
+  entries.map(async ([path, resolver]) => {
+    const mod = await resolver();
+    const fm = mod.post_details ?? {};
+
+    return {
+      url: path.replace("./writings", "/writings").replace(/(\/index)?\.(md|astro)$/, ""),
+      title: fm.title ?? "(Steven probably forgot to put a title)",
+      publishDate: fm.publishDate ?? "",
+      publishDateDisplay: fm.publishDateDisplay ?? null,
+    };
+  })
+);
+
+// Sort newest first by ISO string
+posts.sort((a, b) => b.publishDate.localeCompare(a.publishDate));
+---
+
+<BaseLayout title="Steven's Soliloquies">
+  <div class="medium">
+    <h2>Steven's Soliloquies</h2>
+    <p>My thoughts on things I want to think about I suppose</p>
+
+    <ul>
+      {posts.map(post => (
+        <li>
+          {post.publishDate && (
+            <span>
+              {post.publishDateDisplay 
+                ? post.publishDateDisplay 
+                : new Date(post.publishDate).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })} – 
+            </span>
+          )}
+          <a href={post.url}>{post.title}</a>
+        </li>
+      ))}
+    </ul>
+    
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <blockquote class="sidequote" style="width: 60ch; margin-top: 4rem;">
+            "We are like books. Most people only see our cover, the minority read only the introduction,
+            many people believe the critics. Few will know our content." <br> - Émile Zola
+        </blockquote>
+    </div>
+  </div>
+</BaseLayout>

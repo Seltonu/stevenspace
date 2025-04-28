@@ -1,0 +1,119 @@
+:root {
+    /* raw color values */
+    --charleston-green: #232B2B;
+    --sage-green: #C9DABF;
+    --sage-green-darker: #A1AE99;
+    --green-one: #5F6F65;
+    --green-two: #879583;
+    --green-three: #768772;
+    
+    /* define palette */
+    --primary-color: var(--charleston-green);
+    --secondary-color: var(--green-two);
+    --text-color: var(--green-two);
+    --link-color: var(--sage-green-darker);
+    
+    /*  */
+    --footer-height: 6rem;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1; /* Ensures the main content area takes available space */
+}
+
+
+
+body {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    font-family: monospace;
+    font-size: 16px;
+}
+a, a:hover {
+    color: var(--link-color);
+}
+a:hover {
+    filter: brightness(80%); /* darken */
+}
+ol, ul {
+    /* list-style-type: none; */
+}
+time {
+    margin-right: 1rem;
+}
+
+
+
+/* --------------- Custom Styles --------------- */
+
+.text-center {
+    text-align: center;
+}
+.sidequote {
+    width: 30%;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    margin: 1rem;
+    padding: 1.2rem;
+    font-style: italic;
+    opacity: 0.8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.sidequote-right {
+    float: right;
+    width: 30%;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    margin: 1rem 0 1rem 1rem;
+    padding: 1.2rem;
+    font-style: italic;
+    opacity: 0.8;
+}
+.sidequote-left {
+    float: left;
+    width: 30%;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    margin: 1rem 1rem 1rem 0rem;
+    padding: 1.2rem;
+    font-style: italic;
+    opacity: 0.8;
+}
+/* --------------- Page Width (Post Sizes) --------------- */
+
+.mini {
+    width: 15rem;
+    margin: 0 auto;
+    display: block;
+}
+.small {
+    width: 30rem;
+    margin: 0 auto;
+    display: block;
+}
+.medium {
+    width: 45rem;
+    margin: 0 auto;
+    display: block;
+}
+.large {
+    width: 60rem;
+    margin: 0 auto;
+    display: block;
+}
+.xl-large {
+    width: 70rem;
+    margin: 0 auto;
+    display: block;
+}
+
+/* --------------- Specifics --------------- */
+
