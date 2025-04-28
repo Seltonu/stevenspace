@@ -9,7 +9,8 @@ const { title = "Steven's Space", class: className } = Astro.props;
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/src/images/catgroove.webp" />
+        <link rel="icon" type="image/svg+xml" href="/catgroove.webp" />
+        <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
         <meta name="viewport" content="width=device-width">
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
@@ -19,7 +20,7 @@ const { title = "Steven's Space", class: className } = Astro.props;
             <Header />
             <slot />
             
-            <img id="flowers_svg" src="/src/images/flowers.svg" alt="Flowers">
+            <img id="flowers_svg" src="/images/flowers.svg" alt="Flowers">
         </main>
     </body>
     <Footer />
