@@ -3,18 +3,25 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 import catgroove from "../images/catgroove.webp";
 
-const entries = Object.entries(import.meta.glob("./blogs/*.{astro,md}"));
+// Get all files in /writing to list out, ignoring files beginning with _underscore
+const entries = Object.entries(import.meta.glob("./blogs/!(_)*.{astro,md,html}"));
+
+
+type Frontmatter = {
+  title?: string;
+  publishDate?: string;
+  publishDateDisplay?: string | null;
+};
 
 const posts = await Promise.all(
   entries.map(async ([path, resolver]) => {
-    const mod = await resolver();
-    const fm = mod.post_details ?? {};
+    const { post_details = {} } = (await resolver()) as { post_details?: Frontmatter };
 
     return {
       url: path.replace("./blogs", "/blogs").replace(/(\/index)?\.(md|astro)$/, ""),
-      title: fm.title ?? "(Steven probably forgot to put a title)",
-      publishDate: fm.publishDate ?? "",
-      publishDateDisplay: fm.publishDateDisplay ?? null,
+      title: post_details.title ?? "[Oops! Error. I probably forgot to put a title]",
+      publishDate: post_details.publishDate ?? "[No date]",
+      publishDateDisplay: post_details.publishDateDisplay ?? null,
     };
   })
 );
@@ -23,11 +30,23 @@ const posts = await Promise.all(
 posts.sort((a, b) => b.publishDate.localeCompare(a.publishDate));
 ---
 
-<BaseLayout class="medium">
+<BaseLayout class="page">
     <h2>Projects, perchance.
         <Image src={catgroove} alt="Cat groovin gif" style="vertical-align: middle;" />
     </h2>
     <p>This section coming soon! I've far too many projects under my belt, hoping to shed a few. My greatest project at
         the moment is myself, so expect this section to take time before I can get to it.
     </p>
+    
+    <ul>
+      {posts.map(post => (
+        <li style="display: flex; margin-top: 0.2rem;">
+            <span style="width: 8rem; text-align: right;">
+                {post.publishDateDisplay || post.publishDate}
+            </span>
+            <span style="width: 2rem; margin-left: 1rem;"> – </span>
+            <a href={post.url}>{post.title}</a>
+        </li>
+      ))}
+    </ul>
 </BaseLayout>

@@ -1,0 +1,72 @@
+---
+import { ACTION_ERROR_CODES } from "astro:actions";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+
+export const post_details = {
+  title: "Vacillations and Vicissitudes of my Infinite Lives",
+  publishDate: "2025-05-12",
+  publishDateDisplay: "May 12, 2025"
+};
+---
+
+<BaseLayout class="post" title={post_details.title}>
+    <div class="text-center">
+        {post_details.publishDateDisplay || post_details.publishDate}
+        <br><br>
+        {post_details.title}
+        <br>
+    </div>
+    
+    <!-- <p class="text-center">
+        Alternative Title: Buridan's Ass
+    </p> -->
+    <figure class="sidequote" style="width: 80%; margin-left: auto; margin-right: auto; margin-top: 2rem; margin-bottom: 2rem;">
+        <blockquote  cite="https://classics.mit.edu/Aristotle/heavens.html">
+            <p>"A man, being just as hungry as thirsty, and placed in between food and drink, must necessarily remain where he is and starve to death."</p>
+        </blockquote>
+        <figcaption style="text-align: right;">&mdash; Aristotle, <cite>On The Heavens</cite>, 295b, c. 350 BC</figcaption>
+    </figure>
+    <p>
+        My greatest disappointment in living my one life, is that I won't experience all of them. I want to experience
+        every possible lifetime, and I become paralyzed by choice. I've always had this idea that there are infinite lives
+        ahead of me. If I look what routes I can take at any given moment as a branching tree of possibilities, the canopy
+        above me seems endless. And yet I recognize that any step forward necessitates a pruning of paths.
+    </p>
+    <p>
+        For example, for years I've thought I want to live abroad. How desperately I still want to live in a walkable
+        city, somewhere with a real sense of community. In my travels to Japan and Spain, I got a feel for this. Community
+        so thick, so rich, so vibrant it fills you with life just to sit in its embrace. The endless third spaces 
+        in Japanese society. Making new friends with travelers in a hostel in Nagano.
+        Sitting around a plaza as kids played with water guns in the summer heat of Madrid. Simple
+        but beautiful peeks into worlds entirely different than where I'm from. And
+        as these new realities wove themselves into me, my tree of life expanded to include these new paths.
+    </p>
+    <p>
+        On the other hand, some things in life trim our potential paths. Starting a career locks down your future significantly
+        the longer you sow yourself into it. I am a full stack web developer today. If I stay this way for long, I may never be a robotics
+        engineer, or a sys admin, or hell a fisherman. My pets have trimmed my path, I can't simply leave home for longer
+        than a few days at a time anymore. They are my glorious little responsibilities but they also hold me back from... 
+        driving to Washington tomorrow and spending 2 weeks in a cabin in the woods? Whatever I want!
+        I'm making peace with the fact I will never be or do many things.
+    </p>
+    <p>
+        Perhaps the biggest, a relationship starts to paint a picture of a life farther out than maybe any single decision can.
+        It's a scary thought honestly, to trust another with my tree so deeply. And when I have kids someday, the possibilities of life 
+        shrink <em>dramatically</em>. Inherently by setting down roots, you lose flexibility and mobility. But you gain strength and stability.
+    </p>
+    <p>
+        Thinking too deeply on the future puts me in a state of mourning. I feel that I have so much life to live, that to choose
+        one life is to wrestle with the loss of a thousand. To an outside observer this appears a "grass is greener" mentality; to me it's a
+        fear of living too small.
+    </p>
+    <p>
+        If life were a video game, I'd be the type of player to complete all the side quests and forget the main quests.
+        What I'm learning is while I've been focused on the breadth of life I can live, I can overlook its depth.
+        And for someone who takes things as they come, I don't often choose a future so much as I <em>arrive</em>.
+    </p>
+    <p>
+        I vascillate endlessly in this open world. And I am rarely certain of my choices. Which feels strange, because
+        for me to choose something, means I've chosen it over my infinite lives.
+    </p>
+</BaseLayout>

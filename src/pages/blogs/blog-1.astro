@@ -1,52 +1,78 @@
 ---
 import { ACTION_ERROR_CODES } from "astro:actions";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import "/src/styles/writings.css";
 
 export const post_details = {
-  title: "Untitled 2",
-  publishDate: "2025-04-01",
-  publishDateDisplay: "March 2025"
+  title: "Me, Myself, and I",
+  publishDate: "2025-05-11",
+  publishDateDisplay: "May 11, 2025"
 };
 ---
 
-<BaseLayout class="large">
-    <div class="writing">
-        <div class="text-center">
-            {post_details.publishDateDisplay}
-            <br><br>
-            Untitled 2 //Warning: Emotions!
-            <br>
-        </div>
+<BaseLayout class="post" title={post_details.title}>
+    <div class="text-center">
+        {post_details.publishDateDisplay || post_details.publishDate}
+        <br><br>
+        {post_details.title}
+        <br>
+    </div>
+    
+    <p>
+        I am my greatest project. I've been working on this bad boy for 27 years! Lately life has gotten a little more bumpy..
+        I spent ~5 months taking a hard look inward, and my life started to feel very small as I dug deeper. Now I have finally found the answers I was looking
+        for, and like a mechanic I am whizzing away at the screws I've loosened and putting together a few upgrades for future endeavors.
+    </p>
+    <p>
+        For one I've started to take my health more seriously. I put on weight last year from stress, and was fairly insecure and unhappy with my body.
+        This March I lost 12 lbs, and I've managed to keep it off through working out at the gym and running consistently.
+    </p>
+    <p>
+        Speaking of running - I have been running every day for 2 months now with no rest days! It has been seriously
+        difficult on my body from how rapidly I am progressing - from a completely sedentary lifestyle to a month of running 5Ks 
+        (3.1 miles), right into daily 10Ks! I'm planning to complete a marathon this year. But running for me isn't just
+        about fitness actually, it's about proving to myself I have the ability to commit <em>hard</em> to something.
+        Just building this stupendous discipline.
+    </p>
+    <p>
+        Mentally/Emotionally, I've taken a serious dive back into therapy/psychiatry for the first time since I graduated. I actually signed
+        up with the explicit goal of correcting my avoidant attachment style to be a better partner, and unpacking the family/previous 
+        relationship trauma that got me here. It's been incredibly insightful. I feel like I've unlocked a whole new understanding 
+        of myself that I couldn't put into words before. They also want me to get tested for beautiful princess disorder (aka best pussy disease).
+        I have now had four (4) mental health professionals speculate it... I'm starting to get the hint.
+    </p>
+    <p>
+        I've also been exploring new hobbies and trying to expand my world a bit. I recently completed a motorcycle safety course
+        and got my motorcycle license! I'm actually going to get my gear and look at a used sportsbike this week. I'm also taking
+        up fun small side projects like working on restoring an abandoned table I found on the street.
+        I've been so crazy excited to work on it, I've just been too busy. I already started sanding it and have a walnut stain ready.
+    </p>
+    <p>
+        I'm even sweating the small stuff: I recently got invisalign to fix my goofy smile. I'm getting back into my skin
+        care routine. And I'm slowly but surely fixing my posture (I just sat up as I typed that).
+    </p>
+    <p>
+        With work I've found a much healthier work life balance, where I'm done when I go home. No more 12hr+ days. And not to count my chickens
+        before they hatch but I'm aiming for a promotion to senior SWE this year. I've been
+        taking on more responsibilities, and am a mentor again to the newest hire. My supervisor even said I'm <em>such</em> a good mentor
+        they plan to send me more new hires to be responsible for. And my social anxiety has also improved massively from being in office again!
+    </p>
+    <p>
+        I've even started to put myself out there a bit again too, to test the waters. It's tough! But things have been going well.
+        It's nice to be wanted, and to have someone to laugh with.
+    </p>
+    <p>
+        Perchance I'll finally start my company this year too. I've got great ideas, and am working on my CAD skills and learning
+        more about business. One of my friends started their business too and wants me to join as a web developer.
+    </p>
+    <p>
+        I keep thinking lately, 2025 is a big year for me. I'm putting in the work, and people are starting to take notice.
+        It's actually incredibly satisfying how many friends have come up to me because they've heard how about all the 
+        crazy ways I'm pushing myself hard.
+    </p>
+    <div style="display: flex; align-items: stretch; justify-content: center;">
         
-        <p>Today I turned 27. And still every new birthday hits me with surprise that I'm still here. "This wasn't supposed to 
-        happen. How did I get this far?" I often feel my life is on autopilot. I told myself "One day at a time" so many times
-        that I forgot how to look ahead.</p>
-        
-        <blockquote class="sidequote-right">
-            "I'll cross that bridge when I get to it."
+        <blockquote class="sidequote sidequote-lg">
+            "If someone watched you for a week, would they believe you're serious about your goals?" <br> - Unknown
         </blockquote>
-        
-        <p>It's been 6 years since I attempted. Where do I see myself in another 6? Abroad? BayArea? LA? Same career? Grad school?
-        House? Family? I don't know. "I'll cross that bridge when I get to it" I tell myself, running away to avoid answering.
-        A few years ago a friend said "I don't see you ever settling down" and it eats at me. I don't know how.</p>
-        
-        <p>I struggle to visualize my life long term. Sometimes I think I sabotage myself so I don't have to. "I'm moving 
-        back to the bay soon" and "I'll only be in the bay a few years". When my life starts to feel cozy, comfortable, 
-        familiar & like a home... I inexplicably move to scramble it around. Why am I afraid of stability? I think it feels 
-        like I lose my autonomy. Like letting go of control to trust my environment. But I struggle to trust the life I've 
-        built is safe. Childhood taught me avoidance is safer, stability is fragile.</p>
-        
-        <p>I feel afraid to commit to my life. So everything turns into "someday". I remind myself often that I've made huge progress.
-        But towards what? There is no plan. "What the fuck am I doing? Why can't I stay put and build the life I want?" The 
-        fact that I don't have the answers yet confuses and scares me. When am I supposed to? Is it too late?</p>
-        
-        <p>For months I've been struggling with these questions. Maybe I'm homesick. Traveling abroad was a good distraction to
-        avoid taking my future seriously. "I want this" I thought, aiming still farther away.</p>
-        
-        <p>I think the existential peace I felt in ~2018 when nothing mattered was too intoxicating. It broke my ability to look
-        forward, and I've been stuck that way since. I'm worried my life is passing me by as I waste time paralyzed by inaction.
-        I need to learn how to be comfortable planting roots, not afraid of them - the grass will be greener only where I water
-        it. I want my future to start meaning longer than just 'tomorrow'. Because 28 feels like another lifetime just one day away.</p>
     </div>
 </BaseLayout>

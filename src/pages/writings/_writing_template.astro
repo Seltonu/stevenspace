@@ -1,0 +1,21 @@
+---
+import { ACTION_ERROR_CODES } from "astro:actions";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import "/src/styles/writings.css";
+
+
+export const post_details = {
+  title: "Title",
+  publishDate: "2025-01-01",
+  publishDateDisplay: "January"
+};
+---
+
+<BaseLayout class="post" title={post_details.title}>
+    <div class="text-center">
+        {post_details.publishDateDisplay || post_details.publishDate}
+        <br><br>
+        {post_details.title}
+        <br>
+    </div>
+</BaseLayout>

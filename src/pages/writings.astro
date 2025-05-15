@@ -1,18 +1,25 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const entries = Object.entries(import.meta.glob("./writings/*.{astro,md}"));
+// Get all files in /writing to list out, ignoring files beginning with _underscore
+const entries = Object.entries(import.meta.glob("./writings/!(_)*.{astro,md,html}"));
+
+
+type Frontmatter = {
+  title?: string;
+  publishDate?: string;
+  publishDateDisplay?: string | null;
+};
 
 const posts = await Promise.all(
   entries.map(async ([path, resolver]) => {
-    const mod = await resolver();
-    const fm = mod.post_details ?? {};
+    const { post_details = {} } = (await resolver()) as { post_details?: Frontmatter };
 
     return {
       url: path.replace("./writings", "/writings").replace(/(\/index)?\.(md|astro)$/, ""),
-      title: fm.title ?? "(Steven probably forgot to put a title)",
-      publishDate: fm.publishDate ?? "",
-      publishDateDisplay: fm.publishDateDisplay ?? null,
+      title: post_details.title ?? "[Oops! Error. I probably forgot to put a title]",
+      publishDate: post_details.publishDate ?? "[No date]",
+      publishDateDisplay: post_details.publishDateDisplay ?? null,
     };
   })
 );
@@ -21,35 +28,43 @@ const posts = await Promise.all(
 posts.sort((a, b) => b.publishDate.localeCompare(a.publishDate));
 ---
 
-<BaseLayout title="Steven's Soliloquies">
-  <div class="medium">
+<BaseLayout class="post" title="Steven's Soliloquies">
     <h2>Steven's Soliloquies</h2>
     <p>My thoughts on things I want to think about I suppose</p>
 
     <ul>
       {posts.map(post => (
-        <li>
-          {post.publishDate && (
-            <span>
-              {post.publishDateDisplay 
-                ? post.publishDateDisplay 
-                : new Date(post.publishDate).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })} – 
+        <li style="display: flex; margin-top: 0.2rem;">
+            <span style="width: 8rem; text-align: right;">
+                {post.publishDateDisplay || post.publishDate}
             </span>
-          )}
-          <a href={post.url}>{post.title}</a>
+            <span style="width: 2rem; margin-left: 1rem;"> – </span>
+            <a href={post.url}>{post.title}</a>
         </li>
       ))}
     </ul>
+
+
+
     
     <div style="display: flex; justify-content: center; align-items: center;">
-        <blockquote class="sidequote" style="width: 60ch; margin-top: 4rem;">
+        <blockquote class="sidequote custom-sidequote">
             "We are like books. Most people only see our cover, the minority read only the introduction,
             many people believe the critics. Few will know our content." <br> - Émile Zola
         </blockquote>
     </div>
-  </div>
 </BaseLayout>
+
+<style>
+    .custom-sidequote {
+        width: 60ch;
+        margin-top: 4rem;
+    }
+    @media (max-width: 480px) {
+        .custom-sidequote {
+            width: 80%;
+        }
+    }
+
+
+</style>

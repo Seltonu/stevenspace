@@ -1,21 +1,20 @@
 ---
 import { ACTION_ERROR_CODES } from "astro:actions";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import "/src/styles/writings.css";
 
 export const post_details = {
-  title: "Untitled 2",
+  title: "Untitled 2 // Warning: Emotions!",
   publishDate: "2025-04-01",
   publishDateDisplay: "March 2025"
 };
 ---
 
-<BaseLayout class="large" title={post_details.title}>
+<BaseLayout class="post" title={post_details.title}>
     <div class="writing">
         <div class="text-center">
-            {post_details.publishDateDisplay}
+            {post_details.publishDateDisplay || post_details.publishDate}
             <br><br>
-            Untitled 2 //Warning: Emotions!
+            {post_details.title}
             <br>
         </div>
         
@@ -23,7 +22,7 @@ export const post_details = {
         happen. How did I get this far?" I often feel my life is on autopilot. I told myself "One day at a time" so many times
         that I forgot how to look ahead.</p>
         
-        <blockquote class="sidequote-right">
+        <blockquote class="sidequote sidequote-right">
             "I'll cross that bridge when I get to it."
         </blockquote>
         
@@ -35,7 +34,7 @@ export const post_details = {
         back to the bay soon" and "I'll only be in the bay a few years". When my life starts to feel cozy, comfortable, 
         familiar & like a home... I inexplicably move to scramble it around. Why am I afraid of stability? I think it feels 
         like I lose my autonomy. Like letting go of control to trust my environment. But I struggle to trust the life I've 
-        built is safe. Childhood taught me avoidance is safer, stability is fragile.</p>
+        built is safe. Growing up taught me avoidance is safer, stability is fragile.</p>
         
         <p>I feel afraid to commit to my life. So everything turns into "someday". I remind myself often that I've made huge progress.
         But towards what? There is no plan. "What the fuck am I doing? Why can't I stay put and build the life I want?" The 
@@ -44,7 +43,7 @@ export const post_details = {
         <p>For months I've been struggling with these questions. Maybe I'm homesick. Traveling abroad was a good distraction to
         avoid taking my future seriously. "I want this" I thought, aiming still farther away.</p>
         
-        <p>I think the existential peace I felt in ~2018 when nothing mattered was too intoxicating. It broke my ability to look
+        <p>I think the existential peace I felt in ~2018 when nothing mattered anymore was too intoxicating. It broke my ability to look
         forward, and I've been stuck that way since. I'm worried my life is passing me by as I waste time paralyzed by inaction.
         I need to learn how to be comfortable planting roots, not afraid of them - the grass will be greener only where I water
         it. I want my future to start meaning longer than just 'tomorrow'. Because 28 feels like another lifetime just one day away.</p>

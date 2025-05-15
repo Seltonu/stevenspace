@@ -4,9 +4,9 @@ import { SITE_TITLE } from "../consts";
 
 <header style="text-align: center;">
     <nav>
-        <h1 style="margin-bottom: 1.5rem;"><a href="/index">{SITE_TITLE}</a></h1>
-        <a href="/index">Home</a>
-        <a href="/about">About Me</a>
+        <h1 style="margin-bottom: 1.5rem;"><a href="/">{SITE_TITLE}</a></h1>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
         <a href="/blogs">Blog</a>
         <a href="/writings">Writings</a>
     </nav>
@@ -17,8 +17,15 @@ nav {
     margin-top: 3rem;
     margin-bottom: 3rem;
 }
+
 a {
     margin-right: 3rem;
     margin-left: 3rem;
+}
+@media (max-width: 480px) {
+    a {
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+    }
 }
 </style>

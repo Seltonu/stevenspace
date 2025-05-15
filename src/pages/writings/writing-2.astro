@@ -1,0 +1,84 @@
+---
+import { ACTION_ERROR_CODES } from "astro:actions";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+
+export const post_details = {
+  title: "Moving On: A Paint Cup Analogy",
+  publishDate: "2025-05-11",
+  publishDateDisplay: "May 11, 2025"
+};
+---
+
+<BaseLayout class="post" title={post_details.title}>
+    <div class="text-center">
+        {post_details.publishDateDisplay || post_details.publishDate}
+        <br><br>
+        {post_details.title}
+        <br>
+    </div>
+    
+    <p>
+        Imagine you're a brush cup of clear water. Struggling to move on is like having a brush with black paint dipped in you.
+        We become cloudy, murky, and it's hard to see our life for what it is anymore. The process of moving on, is like a process
+        of repeatedly cleaning out the paint.
+    </p>
+    <p>
+        First we have to recognize: we cannot move on without losing some of our water. By definition
+        when someone has become our other half, then we must lose a little of ourselves every time we remove them. We spill out into the sink
+        in an effort to rid us of the paint, only to find we are half empty and still the color gray. But <em>this is healing</em>. The same as we would clean out
+        our brush cup by refilling it, we too must lose and refill ourselves. And we must find new sources of clean water. These can be
+        people we trust, hobbies, and experiences.
+    </p>
+    <p>
+        Sometimes the pain is overwhelming and we want to pour out all of ourselves. Other times we deny we are even the color gray - maybe in the
+        wrong lighting gray and clear aren't so different. And often we try to mask our gray by covering it up with other colors. The bright
+        scarlet of anger and indignation is splashed in, but mixed with gray we just end up the deep maroon of angered longing. Some days will be easier.
+        Some will be harder. Running into them at the mall, hearing news, getting an unwelcome reminder. Suddenly we are gray again.
+    </p>
+    <p>
+        In the short term: pour yourself out a little at a time. Allow yourself to
+        feel the emotions (<em>process</em> the paint), and let it out. Cry, listen to sad music, journal. Write letters you
+        will never send. Feel deeply, and be embarassingly  candid with yourself. Rely on others you trust, and as you 
+        pour out, allow them to pour into you. You gotta clean the dirty water out by acknowledging it and then let yourself
+        get refilled by life, friends, etc.
+    </p>
+    <p>
+        In the longer term: become a bigger cup! Build yourself up so that you have so much water in you that when the paint
+        is dipped in, you barely even register it. Write down the things that make your life great.
+        Become proud of the life you're living. Be refilled by living a life that fulfills you.
+        Re-engage with life and hobbies in a way that <strong><em>expands your world</em></strong>.
+        Try something completely new you've always wanted to do. Not as a distraction, but as a re-engaging with the parts of yourself
+        you've forgotten. You are more than the half you've lost.
+    </p>
+    <p>
+        Part of this growth can also mean removing ourselves from scenarios we know will cloud us. It allows us the 
+        space to explore the world safely until we've grown. Logically: for something to grow, it needs <strong><em>space to grow into.</em></strong>
+        Yet the reverse can also be true - our growth can come from challenge. "A comfort zone is a beautiful place, but nothing ever grows there" - John Assaraf
+    </p>
+    <p>
+        The most important thing in refilling your cup is to do it for yourself. When we do things with the intent of being seen,
+        we are actually dipping our own brush into the water of others. It ties our healing to something outside of ourselves.
+        And we should be mindful with the sources of our water. We want to find others who pour into us and make us clear,
+        not people who are themselves stained with paint.
+    </p>
+    
+    <hr/>
+    
+    <div class="text-center">
+        Personal Addendum
+    </div>
+    
+    <p>
+        In my life, I find it extremely difficult to feel anger. While it can be part of the healing process (and is one of the stages
+        of grief), I deeply believe that the root of all anger is misunderstanding. There are exceptions (i.e. cheating) where anger is very justified.
+        But I don't believe anger is ultimately an effective tool for long term healing. It is purely destructive, and we often lose ourselves in it only
+        to regret our actions once the damage is done. It does well to remember here: the opposite of love is not hate, it is indifference. 
+        To truly move on, anger is never the solution. A clean cup carries no color.
+    </p>
+    <p>
+        I am extremely grateful to have friends who do not fill me with red paint and call it healing. Instead they fill
+        me from their own cups, and remind me to focus on my water.
+    </p>
+    
+</BaseLayout>
